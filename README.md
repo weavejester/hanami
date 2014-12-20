@@ -1,5 +1,7 @@
 # Hanami
 
+[![Build Status](https://travis-ci.org/weavejester/hanami.svg?branch=master)](https://travis-ci.org/weavejester/hanami)
+
 A Clojure utility library for [Heroku][] web applications.
 
 [heroku]: https://heroku.com

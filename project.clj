@@ -1,4 +1,4 @@
-(defproject hanami "0.1.0-SNAPSHOT"
+(defproject hanami "0.1.0"
   :description "A utility library for Heroku web applications"
   :url "https://github.com/weavejester/hanami"
   :license {:name "Eclipse Public License"

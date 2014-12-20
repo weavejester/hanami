@@ -10,7 +10,7 @@ A Clojure utility library for [Heroku][] web applications.
 
 Add the following dependency to your `project.clj`:
 
-    [hanami "0.1.0-SNAPSHOT"]
+    [hanami "0.1.0"]
 
 ## Usage
 

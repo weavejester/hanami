@@ -5,9 +5,9 @@
 (defmulti jdbc-uri
   "Return the JDBC URI for the supplied Heroku URI."
   {:arglists '([uri])}
-  (fn [uri] (keyword (.getScheme (URI. uri)))))
+  (fn [uri & args] (keyword (.getScheme (URI. uri)))))
 
-(defmethod jdbc-uri :postgres [uri]
+(defmethod jdbc-uri :postgres [uri & {:keys [ssl]}]
   (let [uri (URI. uri)]
     (str "jdbc:postgresql://"
          (.getHost uri)
@@ -15,5 +15,6 @@
            (str ":" (.getPort uri)))
          (.getPath uri)
          (if-let [[user pass] (some-> uri .getUserInfo (str/split #":"))]
-           (str "?user="     (URLEncoder/encode user)
+           (str (if ssl "?sslmode=require&" "?")
+                "user="     (URLEncoder/encode user)
                 "&password=" (URLEncoder/encode pass))))))

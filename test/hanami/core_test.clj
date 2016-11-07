@@ -9,4 +9,6 @@
     (is (= (jdbc-uri "postgres://foo:foo@heroku.com/hellodb")
            "jdbc:postgresql://heroku.com/hellodb?user=foo&password=foo"))
     (is (= (jdbc-uri "postgres://foo:foo@heroku.com:5432/hellodb")
-           "jdbc:postgresql://heroku.com:5432/hellodb?user=foo&password=foo"))))
+           "jdbc:postgresql://heroku.com:5432/hellodb?user=foo&password=foo"))
+    (is (= (jdbc-uri "postgres://foo:foo@heroku.com:5432/hellodb" :ssl true)
+           "jdbc:postgresql://heroku.com:5432/hellodb?sslmode=require&user=foo&password=foo"))))
